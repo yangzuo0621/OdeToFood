@@ -44,6 +44,8 @@ namespace OdeToFood
 
             app.UseStaticFiles();
 
+            app.UseNodeModules(env.ContentRootPath);
+
             app.UseMvc(ConfigureRoutes);
             //app.UseMvcWithDefaultRoute();
 
@@ -67,13 +69,6 @@ namespace OdeToFood
             //app.UseWelcomePage(new WelcomePageOptions {
             //    Path="/wp"
             //});
-
-            app.Run(async (context) =>
-            {
-                var greeting = greeter.GetMessageOfTheDay();
-                context.Response.ContentType = "text/plain";
-                await context.Response.WriteAsync($"Not found");
-            });
         }
 
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
