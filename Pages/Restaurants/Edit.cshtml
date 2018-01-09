@@ -9,17 +9,17 @@
     
     <input type="hidden" asp-for="Restaurant.Id" />
 
-    <div>
+    <div class="form-group">
         <label asp-for="Restaurant.Name"></label>
         <input asp-for="Restaurant.Name" />
         <span asp-validation-for="Restaurant.Name"></span>
     </div>
-    <div>
+    <div class="form-group">
         <label asp-for="Restaurant.Cuisine"></label>
         <select asp-for="Restaurant.Cuisine" asp-items="@Html.GetEnumSelectList<CuisineType>()">
             @*<option value="value">text</option>*@
         </select>
         <span asp-validation-for="Restaurant.Cuisine"></span>
     </div>
-    <input type="submit" name="save" value="Save" />
+    <input class="btn btn-primary" type="submit" name="save" value="Save" />
 </form>

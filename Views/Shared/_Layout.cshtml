@@ -22,13 +22,32 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">OdeToFood</a>
             </div>
+            <div class="navbar-right">
+                <vc:login-logout></vc:login-logout>
+            </div>
         </div>
     </nav>
     <div class="container">
         @RenderBody()
         <footer>
             @RenderSection("footer", required: false)
-            @*<vc:greeter></vc:greeter>*@
+            @*@if (User.Identity.IsAuthenticated)
+            {
+                foreach (var identity in User.Identities)
+                {
+                    <h3>@identity.Name</h3>
+                    <ul>
+                        @foreach (var claim in identity.Claims)
+                        {
+                            <li>@claim.Type - @claim.Value</li>
+                        }
+                    </ul>
+                }
+            }
+            else
+            {
+                <div>You are anonymous</div>
+            }*@
         </footer>
     </div>
     <environment include="Development">
